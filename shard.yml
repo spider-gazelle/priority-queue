@@ -1,0 +1,10 @@
+name: priority-queue
+version: 1.0.0
+
+dependencies:
+  bisect:
+    github: spider-gazelle/bisect
+
+development_dependencies:
+  ameba:
+    github: veelenga/ameba
