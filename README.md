@@ -1,6 +1,6 @@
 # Crystal Lang Priority Queue
 
-[![Build Status](https://travis-ci.org/spider-gazelle/priority-queue.svg?branch=master)](https://travis-ci.org/spider-gazelle/priority-queue)
+[![CI](https://github.com/spider-gazelle/priority-queue/actions/workflows/ci.yml/badge.svg)](https://github.com/spider-gazelle/priority-queue/actions/workflows/ci.yml)
 
 
 Usage
