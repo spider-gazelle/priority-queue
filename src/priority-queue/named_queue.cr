@@ -1,3 +1,5 @@
+require "../priority-queue"
+
 class Priority::NamedQueue(V) < Priority::Queue(V)
   @named_items = {} of String => Item(V)
   getter :named_items
@@ -9,20 +11,20 @@ class Priority::NamedQueue(V) < Priority::Queue(V)
         if index
           if item.priority > exists.priority
             delete_at(index)
-            insort_left(item)
+            Bisect.insort_left(@array, item)
           else
             item.priority = exists.priority
             self[index] = item
           end
         else
-          insort_left(item)
+          Bisect.insort_left(@array, item)
         end
       else
-        insort_left(item)
+        Bisect.insort_left(@array, item)
       end
       @named_items[name] = item
     else
-      insort_left(item)
+      Bisect.insort_left(@array, item)
     end
   end
 

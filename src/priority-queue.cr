@@ -1,4 +1,4 @@
-require "bisect/helper"
+require "bisect"
 
 module Priority
   class Item(V)
@@ -18,8 +18,10 @@ module Priority
     end
   end
 
-  class Queue(V) < Array(Item(V))
-    include Bisect::Helper
+  class Queue(V)
+    def initialize
+      @array = [] of Item(V)
+    end
 
     def push(priority : Int32, value : V, name = nil)
       item = Item(V).new(priority, value, name)
@@ -27,7 +29,7 @@ module Priority
     end
 
     def push(item : Item(V))
-      insort_left(item)
+      Bisect.insort_left(@array, item)
     end
 
     def push(*items : Item(V))
@@ -37,6 +39,8 @@ module Priority
     def <<(item : Item(V))
       push(item)
     end
+
+    forward_missing_to @array
   end
 end
 
