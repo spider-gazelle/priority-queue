@@ -29,25 +29,25 @@ class Priority::NamedQueue(V) < Priority::Queue(V)
   end
 
   def pop
-    item = super
+    item = @array.pop
     @named_items.delete(item.name) if item.name
     item
   end
 
   def pop(n : Int)
-    items = super(n)
+    items = @array.pop(n)
     items.each { |item| @named_items.delete(item.name) if item.name }
     items
   end
 
   def shift
-    item = super
+    item = @array.shift
     @named_items.delete(item.name) if item.name
     item
   end
 
   def shift(n : Int)
-    items = super(n)
+    items = @array.shift(n)
     items.each { |item| @named_items.delete(item.name) if item.name }
     items
   end
