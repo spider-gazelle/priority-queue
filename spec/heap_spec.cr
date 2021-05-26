@@ -47,7 +47,7 @@ describe Priority::Heap do
       while !heap.empty?
         ordered << heap.pop.not_nil!
       end
-      ordered.should eq(random_array.sort.reverse)
+      ordered.should eq(random_array.sort.reverse!)
     end
   end
 end

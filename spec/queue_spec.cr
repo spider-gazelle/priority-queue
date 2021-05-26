@@ -15,7 +15,7 @@ describe Priority::Queue do
     while !queue.empty?
       ordered << queue.pop.value
     end
-    ordered.should eq(random_array.sort.reverse)
+    ordered.should eq(random_array.sort.reverse!)
   end
 
   it "should add items of the same priority level in the correct order" do

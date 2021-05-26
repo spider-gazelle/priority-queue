@@ -276,6 +276,7 @@ class Priority::Heap(K, V)
   #     minheap.change_key(2, 0) #=> [0, 2]
   #     minheap.pop #=> 2
   #     minheap.pop #=> 1
+  # ameba:disable Metrics/CyclomaticComplexity
   def change_key(key, new_key, delete = false)
     store = @stored[key]?
     return unless store

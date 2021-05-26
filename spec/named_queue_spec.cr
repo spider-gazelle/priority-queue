@@ -15,7 +15,7 @@ describe Priority::NamedQueue do
     while !queue.empty?
       ordered << queue.pop.value
     end
-    ordered.should eq(random_array.sort.reverse)
+    ordered.should eq(random_array.sort.reverse!)
   end
 
   it "should replace items of the same name" do
