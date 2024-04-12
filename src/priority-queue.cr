@@ -1,10 +1,12 @@
 require "bisect"
 
 module Priority
+  alias Value = Int8 | Int16 | Int32 | Int64 | Int128 | Float32 | Float64
+
   class Item(V)
     include Comparable(Item(V))
 
-    def initialize(@priority : Int32, @value : V, name = nil)
+    def initialize(@priority : Value, @value : V, name = nil)
       @name = name.to_s if name
     end
 
@@ -23,7 +25,7 @@ module Priority
       @array = [] of Item(V)
     end
 
-    def push(priority : Int32, value : V, name = nil)
+    def push(priority : Value, value : V, name = nil)
       item = Item(V).new(priority, value, name)
       push(item)
     end

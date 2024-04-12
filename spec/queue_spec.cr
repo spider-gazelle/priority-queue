@@ -34,4 +34,19 @@ describe Priority::Queue do
 
     queue.size.should eq(0)
   end
+
+  it "should accept priority level as a floating-point number" do
+    queue = Priority::Queue(String).new
+    queue.push 0.11, "Test1"
+    queue.push 0.12, "Test2"
+    queue.push 0.13, "Test3"
+
+    queue.size.should eq(3)
+
+    queue.pop.value.should eq("Test3")
+    queue.pop.value.should eq("Test2")
+    queue.pop.value.should eq("Test1")
+
+    queue.size.should eq(0)
+  end
 end
