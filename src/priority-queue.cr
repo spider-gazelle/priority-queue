@@ -15,8 +15,8 @@ module Priority
     property :priority
 
     # required for comparable
-    def <=>(item)
-      @priority <=> item.priority
+    def <=>(other)
+      @priority <=> other.priority
     end
   end
 

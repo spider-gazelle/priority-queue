@@ -1,0 +1,5 @@
+Lint/NotNil:
+  Enabled: false
+
+Naming/BlockParameterName:
+  Enabled: false
