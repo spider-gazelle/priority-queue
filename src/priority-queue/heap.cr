@@ -283,7 +283,7 @@ class Priority::Heap(K, V)
     return if store.empty? || (key == new_key)
 
     # Must maintain heap property
-    raise "Changing this key would not maintain heap property!" unless (delete || new_key && @compare_fn.call(new_key, key))
+    raise "Changing this key would not maintain heap property!" unless delete || new_key && @compare_fn.call(new_key, key)
     node = store.shift
     if node
       if new_key
@@ -448,9 +448,9 @@ class Priority::Heap(K, V)
     x.left.right = x.right
     x.right.left = x.left
     y.degree -= 1
-    if (y.degree == 0)
+    if y.degree == 0
       y.child = nil
-    elsif (y.child == x)
+    elsif y.child == x
       y.child = x.right
     end
     lnext = @next.not_nil!
