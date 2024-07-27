@@ -42,6 +42,7 @@ module Priority
       push(item)
     end
 
+    delegate empty?, first, last, first?, last?, size, shift, pop, clear, to: @array
     forward_missing_to @array
   end
 end
