@@ -3,7 +3,7 @@ require "bisect"
 module Priority
   alias Value = Int8 | Int16 | Int32 | Int64 | Int128 | Float32 | Float64
 
-  class Item(V)
+  struct Item(V)
     include Comparable(Item(V))
 
     def initialize(@priority : Value, @value : V, name = nil)
